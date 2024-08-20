@@ -66,20 +66,20 @@ const usuariosPut = async(req, res = response) => {
     })
 }
 
+
 const usuariosPath = (req, res = response) => {
     res.json({
         ok: true,
         msg: "path API"
     })
 }
+
+
 const usuariosDelete = async(req, res = response) => {
     
     const { id } = req.params
-    
-    //fisicamente lo borramos
-    // const usuario = await Usuario.findByIdAndDelete(id)
-    
     const usuario = await Usuario.findByIdAndUpdate(id,{estado:false})
+    
     res.json(usuario)
 }
 
